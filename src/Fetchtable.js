@@ -1,7 +1,7 @@
 
-import axios from 'axios';
-import React, {useState, Component, useEffect } from 'react'
-import ReactDom from 'react-dom';
+
+import React, {useState } from 'react'
+
  
  
 const Fetchtable = () =>{
@@ -30,26 +30,72 @@ const Fetchtable = () =>{
                     'auth': 'we-are-metby'
                 }
             }) 
-            //   console.log(response.json())
+      
+        // const users = await response.json();
+        // console.log(users);
+
+        // setUsers(users);
         if(response.ok){
             const user = await response.json();
             console.log(user);
-            console.log(txt);
-            // console.log(user.records[0].name);
-            // console.log(user.records.length);
-            setUsers({user});
+
+            console.log(user.records[0].name);
+            console.log(user.records.length);
+           
+             setUsers({users}); 
+              
         }
-          
+        
+        
+        
+       console.log({users});
+
+      /* console.log(users.records.length);
+       return  users.records.length > 0 ?(   
+                <>
+                 <table>
+                           <thead>
+                              <tr>
+                                    <th>ProfilePic</th>
+                                    <th>UserId</th>
+                                    <th>Name</th>
+                                    <th>Phone Number</th>
+                              </tr>
+
+                           </thead>
+                           <tbody>
+                                  
+                           </tbody>
+                       </table>
+                </>
+             ):
+             <div>No users</div>
+             */
+        
+
+}
+
+//   users.records.map(val =>{
+//             return (
+//                 <td>{val.name}</td>
+//             )
+//         })
        
-   }
+    
+
     
 
     return (
-        
+        <>
             <div>
                 <input type="text" onChange={inputSearch} placeholder="Enter name here..." />
                 <button onClick={SearchBtn}>Search</button>
             </div>
+            <div>
+                {/* <p>  {users.records}</p> */}
+            </div>
+
+            </>
            
             )
     
