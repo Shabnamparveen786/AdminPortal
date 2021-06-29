@@ -65,6 +65,39 @@ const Fetchtable = () => {
             </div>
 
             <div>
+                {
+                    users.map((val) =>{
+                        return(
+                             <div key= {val.userId}>
+                             <table>
+                               <thead> 
+                                 <tr>
+                                   <th>UserId</th>
+                                   <th>Name</th>
+                                   <th>phone Number</th>
+                                   <th>profilePic</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                                 <tr>
+                                  <td>{val.userId}</td>
+                                  <td>{val.name}</td>
+                                  <td>{val.phoneNumber}</td>
+                                  <td>
+                                     <img src={val.profilePic} alt="error"/>
+                                  </td>
+                                 </tr>
+                             </tbody>
+                           </table>
+
+                            </div>
+                        )
+                    })
+                }
+            </div>
+            
+
+            {/* <div>
                 <table>
                     <thead> 
                          <tr>
@@ -90,7 +123,7 @@ const Fetchtable = () => {
                         }
                     </tbody>
                 </table>
-            </div>
+            </div> */}
           
 
         </>
