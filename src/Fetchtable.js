@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
+
 // import ReactTable from 'react-table';
 import Tab from './Tab';
+
 
 
 
 const Fetchtable = () => {
     const [txt, setTxt] = useState("");
     const [users, setUsers] = useState([]);
+
    
   
 
@@ -82,6 +85,10 @@ const Fetchtable = () => {
     console.log(users);
     console.log(users.length);
 
+
+   
+
+
      
     return (
         
@@ -92,6 +99,7 @@ const Fetchtable = () => {
             </div>
 
             <div>
+
                  <Tab columns = {columns} users = {users}/>
             </div>
              
@@ -103,6 +111,41 @@ const Fetchtable = () => {
                users.length > 0
                ?(
                 <div>
+
+                {
+                    users.map((val) =>{
+                        return(
+                             <div key= {val.userId}>
+                             <table>
+                               <thead> 
+                                 <tr>
+                                   <th>UserId</th>
+                                   <th>Name</th>
+                                   <th>phone Number</th>
+                                   <th>profilePic</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                                 <tr>
+                                  <td>{val.userId}</td>
+                                  <td>{val.name}</td>
+                                  <td>{val.phoneNumber}</td>
+                                  <td>
+                                     <img src={val.profilePic} alt="error"/>
+                                  </td>
+                                 </tr>
+                             </tbody>
+                           </table>
+
+                            </div>
+                        )
+                    })
+                }
+            </div>
+            
+
+            {/* <div>
+
                 <table>
                     <thead> 
                          <tr>
@@ -113,12 +156,18 @@ const Fetchtable = () => {
                          </tr>
                     </thead>
                     <tbody>
+
                             
                                 
                         {
                              
                             users.map((val)=>{
                              return(  
+
+                            {
+                                
+                          users.map((val)=>
+
                             <tr key={val.userId}>
                                <td>{val.userId}</td>
                                <td>{val.name}</td>
@@ -127,6 +176,7 @@ const Fetchtable = () => {
                                   <img src={val.profilePic} alt="error"/>
                                </td>
                             </tr>
+
                              )
                             })
                            
@@ -145,8 +195,16 @@ const Fetchtable = () => {
          } */}
 
 </>
+
+              
+          
+
+    
+
+
     )
 
-}
+        
+    }
 
 export default Fetchtable;
