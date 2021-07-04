@@ -1,13 +1,15 @@
 // import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './App';
+// import Fetchtable from './Fetchtable';
+import App from './App';
 // import List from './List';
 // import Demo from './Demo';
-import Fetchtable from './Fetchtable';
+// import Example from './Example';
+
 
 
 
 ReactDOM.render(
-  <Fetchtable/>,
+  <App/>,
   document.getElementById('root')
 );

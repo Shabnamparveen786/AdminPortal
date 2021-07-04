@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 
-export class Table extends Component {
+export class List extends Component {
     state ={
           users: [],
           txt: ""
@@ -37,7 +37,7 @@ export class Table extends Component {
 
             console.log(users.records[0].name);
             console.log(users.records.length);
-            this.setState({users});
+            this.setState(users.records);
 
              
         }
@@ -88,4 +88,4 @@ export class Table extends Component {
     }
 }
 
-export default Table;
+export default List;
