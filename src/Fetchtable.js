@@ -1,7 +1,7 @@
 import React, {  useState } from 'react'
 
-// import ReactTable from 'react-table';
-// import Tab from './Tab';
+import BootstrapTable from 'react-bootstrap-table-next';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -11,10 +11,15 @@ const Fetchtable = () =>{
 
    const [txt, setTxt] = useState("");
    const [users, setUsers] = useState([]);
-   const [searched, setSearched] = useState(false);
+//    const [searched, setSearched] = useState(false);
 
 
-
+   const columns = [
+       {dataField: 'userId', text: 'UserId'},
+       {dataField: 'name', text: 'Name'},
+       {dataField: 'phoneNumber', text: 'PhoneNumber'},
+       {dataField: 'profilePic', text: 'ProfilePic'}
+   ]
 
 
 
@@ -65,7 +70,7 @@ const Fetchtable = () =>{
              console.log("hello");
             console.log(user.records);
             setUsers(user.records);
-            setSearched(true)
+            // setSearched(true)
 
         }
 
@@ -73,68 +78,13 @@ const Fetchtable = () =>{
 
 }
 
-//
-// const PrintResult = () =>{
-//
-//                  console.log('hiii')
-//                  console.log(users);
-//
-//
-//
-//
-//               return users.length > 0
-//                     ?(
-//                         <div>
-//                             <table>
-//                                 <thead>
-//                                     <tr>
-//                                          <th>UserId</th>
-//                                          <th>Name</th>
-//                                          <th>phone Number</th>
-//                                          <th>profilePic</th>
-//                                     </tr>
-//                                 </thead>
-//                                 <tbody>
-//
-//                                        {  users.map((val)=>{
-//                                            return(
-//                                             <tr key={val.userId}>
-//                                              <td>{val.userId}</td>
-//                                              <td>{val.name}</td>
-//                                              <td>{val.phoneNumber}</td>
-//                                              <td>
-//                                                    <img src={val.profilePic} alt="error"/>
-//                                              </td>
-//                                             </tr>
-//                                            )
-//                                            })
-//                                         }
-//
-//
-//                                 </tbody>
-//                              </table>
-//                         </div>)
-//
-//
-//                         :(
-//                             <div>
-//                                 No users
-//                             </div>
-//
-//                         )
-//
-//
-// }
 
 
 
 
 
     console.log(users);
-    // console.log(users.length);
-    // SearchBtn();
-
-    //  PrintResult();
+  
 
 
 
@@ -145,7 +95,9 @@ const Fetchtable = () =>{
                 <input type="text" onChange={inputSearch} placeholder="Search here user name" />
                 <button onClick= { searchBtn } >Search</button>
              </div>
-                 { searched ? users.length > 0
+
+                <BootstrapTable keyField='userId' columns={columns} data={users}/>
+                 {/* { searched ? users.length > 0
                        ?(
                            <div>
                                <table>
@@ -184,7 +136,7 @@ const Fetchtable = () =>{
                                    No users
                                </div>
 
-                           ) : ''}
+                           ) : ''} */}
 
 
 
