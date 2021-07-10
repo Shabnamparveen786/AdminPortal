@@ -59,13 +59,20 @@ export class App extends Component {
        
         console.log(this.state.enterText);
         console.log(this.state.imageView[0].url);
-        // const payload="";
+         const payload = {
+             "imageUrl": this.state.imageView[0].url,
+             "tag": this.state.enterText
+        };
 
+        console.log({payload});
         axios.post("http://65.0.211.194:8083/api/v1/clubs/banner",
-        {payload :{
-            "imageUrl": "this.state.imageView[0].url",
-            "tag": "this.state.enterText"
-        }}
+        payload, { headers:{
+                    
+                    'auth': 'dont_delete_user',
+                    'Content-Type' : 'multipart/form-data'
+                    
+                }}
+      
         ).then(submitRes =>{
             console.log(submitRes);
 
